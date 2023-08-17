@@ -1,0 +1,18 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sidebarOpen">
+        <app-side-bar [index]="index"></app-side-bar>
+        <!-- <app-sidebar [index]="index"></app-sidebar> -->
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="navbar">
+            <app-nav-bar (toggleSidebar)="sidebarToogle()"></app-nav-bar>
+            <!-- <app-navbar (toggleSidebar)="sidebarToogle()"></app-navbar> -->
+        </div>
+        <div class="body">
+            <router-outlet></router-outlet>
+        </div>
+        <!-- <div class="footer">
+            <app-footer></app-footer>
+        </div> -->
+    </mat-drawer-content>
+</mat-drawer-container>

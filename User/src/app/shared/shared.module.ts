@@ -5,9 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
 
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,18 +26,19 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { SideBarComponent } from '../components/side-bar/side-bar.component';
+import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
+
 
 
 @NgModule({
   declarations: [
     // Client
-
-
-
+    NavBarComponent,
+    SideBarComponent
   ],
   imports: [
     CommonModule,
-
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
@@ -66,7 +65,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatSortModule,
   ],
   exports: [
-
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
@@ -89,9 +87,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     MatSortModule,
 
-    // Client
-
-
+    //
+    NavBarComponent,
+    SideBarComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
