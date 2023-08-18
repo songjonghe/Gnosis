@@ -1,38 +1,25 @@
-<div class="sidebar">
-    <div class="btn_container">
-        <button class="button" [ngClass]="{ 'is-chosen': index === 0 }" [routerLink]="['/homepage']"
-            routerLinkActive="router-link-active">
-            <i class="fa-solid fa-house"></i>
-            <p>Trang chủ</p>
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+    <div class="logo-container">
+        <img src="../../../assets/images/5.jpg" alt="logo" class="logo-img">
+        <button class="btn-open" (click)="toggleCollapse()">
+            <i class="fa-solid fa-burger" *ngIf="!collapsed"></i>
         </button>
-        <button class="button" [ngClass]="{ 'is-chosen': index === 1 }" [routerLink]="['/category']"
-            routerLinkActive="router-link-active">
-            <i class="fa-solid fa-list"></i>
-            <p>Danh mục</p>
+        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="fa-solid fa-burger"></i>
         </button>
-        <button class="button" [ngClass]="{ 'is-chosen': index === 2 }" [routerLink]="['/news']"
-            routerLinkActive="router-link-active">
-            <i class="fa-solid fa-newspaper"></i>
-            <p>Tin tức</p>
-        </button>
-        <button class="button" [ngClass]="{ 'is-chosen': index === 3 }" [routerLink]="['/introduce']"
-            routerLinkActive="router-link-active">
-            <i class="fa-solid fa-circle-info"></i>
-            <p>Giới thiệu</p>
-        </button>
-        <button class="button" [ngClass]="{ 'is-chosen': index === 4 }" [routerLink]="['/search-by-name-list']"
-            routerLinkActive="router-link-active">
-            <i class="fa-solid fa-flag icon"></i>
-            <p>Dược liệu theo tên</p>
-        </button>
-        <mat-progress-bar class="hr" mode="determinate"></mat-progress-bar>
-        <button class="button" [routerLink]="['/login_page']">
-            <i class="fa-solid fa-user"></i>
-            <p>Đăng nhập</p>
-        </button>
-        <!-- <button class="button" (click)="openSetting()">
-            <i class="fa-solid fa-gear"></i>
-            <p>Cài đặt</p>
+        <!-- <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="fal fa-times close-icon"></i>
         </button> -->
     </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="sidenav-link-icon" [class]="data.icon"></i>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                    {{data.label}}
+                </span>
+            </a>
+        </li>
+    </ul>
 </div>

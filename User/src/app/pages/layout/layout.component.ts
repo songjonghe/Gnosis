@@ -1,46 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
+}
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
-  index: number = 0;
 
-  sidebarOpen = true;
+export class LayoutComponent {
 
-  sidebarToogle() {
-    this.sidebarOpen = !this.sidebarOpen;
-  }
+  isSideNavCollapsed = false;
+  screenWidth = 0;
 
-  urlIndicesMap = [
-    '/homepage',
-    '/category',
-    '/news',
-    '/introduce',
-    '/search-by-name-list',
-  ];
-
-  constructor(private router: Router) {
-  }
-
-  ngOnInit() {
-    this.navigateRouter();
-  }
-
-  navigateRouter() {
-    this.router.events.subscribe((val: any) => {
-      let tempIndex = 0;
-      try {
-        tempIndex = this.urlIndicesMap.indexOf(val.routerEvent.url);
-      } catch (error) {
-        tempIndex = this.urlIndicesMap.indexOf(val.url);
-      }
-      if (tempIndex >= 0) {
-        this.index = tempIndex;
-      }
-    });
+  onToggleSideNav(data: SideNavToggle): void {
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
   }
 }
+
+

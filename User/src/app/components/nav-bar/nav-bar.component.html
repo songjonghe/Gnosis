@@ -1,36 +1,49 @@
-<mat-toolbar color="primary" class="navbar">
-    <button mat-icon-button class="example-icon" (click)="openSidebar()">
-        <mat-icon style="color: var(--color);">menu</mat-icon>
-    </button>
-    <img src="../../../../assets/logo.png" alt="" class="logo-img">
-    <span id="logo-name">Dược Liệu</span>
-    <span class="example-spacer"></span>
-
-
-
-    <div class="search">
-        <div class="select">
-            <select style="padding-left: 5px;">
-                <option value="volvo"> Tất cả </option>
-                <option value="mercedes">Danh mục</option>
-                <option value="audi">Tin tức</option>
-                <option value="saab">Tên</option>
-            </select>
+<div class="navbar" [ngClass]="getNavbarClass()">
+    <div class="navbar-content">
+        <div class="navbar-content-left">
+            <div class="search-container">
+                <div *ngIf="!canShowSearchAsOverlay" class="normal-search">
+                    <input type="search" class="search" name="" id="" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div *ngIf="canShowSearchAsOverlay" class="normal-search">
+                    <button [cdkMenuTriggerFor]="searchOverlay" class="search-menu-btn ripple">
+                        <i class="fas fa-search search-icon"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <input type="text" matInput placeholder="Tìm kiếm" class="search-input">
+        <div class="navbar-content-right">
+            <div class="navbar-menu">
+                <div class="navbar-menu-item">
+                    <button class="navbar-menu-item-btn">
+                        <i class="fa-regular fa-message"></i>
+                    </button>
+                </div>
+                <div class="navbar-menu-item">
+                    <button class="navbar-menu-item-btn">
+                        <i class="fas fa-bell" id="icon"></i>
+                    </button>
+                </div>
+
+
+            </div>
+            <div class="navbar-user-avatar-container">
+                <div class="navbar-user-avatar">
+                    <img src="../../../assets/images/5.jpg" alt="user" class="user-avatar">
+                    <div class="circle-indicator pulse"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #searchOverlay>
+    <div class="overlay overlay-search overly-fall" cdkMenu>
+        <input type="text" class="search" name="" id="" placeholder="Search...">
         <button class="search-btn">
-            <i class="fa-solid fa-search"></i>
+            <i class="fas fa-search"></i>
         </button>
     </div>
 
-
-    <span class="example-spacer"></span>
-    <!-- <span class="example-spacer"></span>
-    <span class="example-spacer"></span> -->
-    <span class="example-spacer"></span>
-    <div class="user">
-        <i class="fa-solid fa-user" style="color: var(--color);justify-content: right;"></i>
-    </div>
-    <span class="example-spacer"></span>
-    <span class="example-spacer"></span>
-</mat-toolbar>
+</ng-template>

@@ -28,14 +28,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { SideBarComponent } from '../components/side-bar/side-bar.component';
 import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
+import { BodyComponent } from '../components/body/body.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
-
+import { CdkMenuModule } from '@angular/cdk/menu';
 
 @NgModule({
   declarations: [
     // Client
     NavBarComponent,
-    SideBarComponent
+    SideBarComponent,
+    BodyComponent
+
   ],
   imports: [
     CommonModule,
@@ -63,6 +67,8 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
     MatExpansionModule,
     MatPaginatorModule,
     MatSortModule,
+    OverlayModule,
+    CdkMenuModule,
   ],
   exports: [
     MatSidenavModule,
@@ -89,7 +95,8 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 
     //
     NavBarComponent,
-    SideBarComponent
+    SideBarComponent,
+    BodyComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

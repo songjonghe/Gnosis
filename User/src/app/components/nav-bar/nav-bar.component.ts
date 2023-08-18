@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,13 +7,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-  @Output() toggleSidebar: EventEmitter<any> = new EventEmitter();
+  @Input() collapsed = false;
+  @Input() screenWidth = 0;
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void { }
-
-  openSidebar() {
-    this.toggleSidebar.emit();
+  canShowSearchAsOverlay = false;
+  constructor() { }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkCanShowSearchAsOverlay(window.innerWidth);
   }
+  ngOnInit(): void {
+    this.checkCanShowSearchAsOverlay(window.innerWidth);
+  }
+
+  getNavbarClass(): string {
+    let styleClass = '';
+    if (this.collapsed && this.screenWidth > 768) {
+      styleClass = 'navbar-trimmed';
+    } else {
+      styleClass = 'navbar-ms-screen';
+    }
+    return styleClass;
+  }
+  checkCanShowSearchAsOverlay(innerWidth: number): void {
+    if (innerWidth < 845) {
+      this.canShowSearchAsOverlay = true;
+    }
+    else {
+      this.canShowSearchAsOverlay = false;
+    }
+  }
+
 }
