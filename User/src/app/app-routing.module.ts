@@ -17,6 +17,9 @@ const routes: Routes = [
   },
   
   {
+    path: 'landing', loadChildren: () => import('../app/pages/landing/landing.module').then(m=>m.LandingModule),
+  },
+  {
     path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
   }
 ];
