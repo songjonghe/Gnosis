@@ -3,14 +3,14 @@
     margin-left: 5rem;
     z-index: 1;
     transition: all .5s ease;
-    background: #f4f7fa;
+    background-color: var(--md-ref-palette-neutral99);
     padding: 0rem 0 0 0rem;
     position: fixed;
     top: 0;
 
     .navbar-content {
         box-shadow: 0 .25rem .5rem #e6edef;
-        border-radius: 0.625rem;
+        // border-radius: 0.625rem;
         box-shadow: 0px 0px 10px 0 rgb(34 41 47 / 10%);
         padding: 0.813rem 1.563rem;
         display: flex;
