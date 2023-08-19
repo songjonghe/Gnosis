@@ -3,16 +3,23 @@ import { HydratedDocument } from 'mongoose';
 
 export type CatDocument = HydratedDocument<User>;
 
-@Schema()
+@Schema({
+    timestamps: true
+})
 export class User {
     @Prop()
     name: string;
 
-    @Prop()
-    age: number;
+    @Prop({
+        unique: [
+            true,
+            'Email already exists'
+        ]
+    })
+    email: string;
 
     @Prop()
-    breed: string;
+    password: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
