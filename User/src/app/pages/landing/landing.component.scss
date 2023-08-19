@@ -14,7 +14,7 @@
     transform: translateX(-50%);
     z-index: 1;
     margin-right: 6rem;
-    width: 628px;
+    width: 658px;
     height: 600px;
     background-image: url("../../../assets/images/avatar.png");
     background-repeat: no-repeat;
@@ -24,11 +24,11 @@
 .image-logo {
     position: absolute;
     bottom: top;
-    left: 50%;
+    left: 49.4%;
     transform: translateX(-50%);
     z-index: 1;
     #logo {
-        width: 400px;
+        width: 350px;
     }
 }
 
@@ -36,7 +36,7 @@
 .box_green {
     width: 50%;
     height: 100%;
-    background-color: #5D9645;
+    background-color: #2A6C0D;
     display: flex;
     flex-direction: column;
 }
@@ -100,7 +100,7 @@
         user-select: none;
         -webkit-user-select: none;
         touch-action: manipulation;
-        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -4px 0 inset;
+        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#FDFDF6 0 -4px 0 inset;
         box-sizing: border-box;
     }
     .start:hover {
@@ -109,7 +109,7 @@
     }
     .start:before {
         background-color: initial;
-        background-image: linear-gradient(#61c972 0, rgba(255, 255, 255, 0) 100%);
+        background-image: linear-gradient(#2A6C0D 0, rgba(255, 255, 255, 0) 100%);
         border-radius: 5px;
         content: "";
         height: 100%;
@@ -143,7 +143,8 @@
     margin-bottom: 2rem;
     margin-left: 6rem;
     
-    .address {     
+    .address {
+        width: 60%;     
         color: white;
         font-size: 15px;
     }
@@ -182,6 +183,7 @@
 .container_subject {
     width: 60%;
     height: 70%;
+   
     display: flex;
     flex-direction: column;
     align-self: flex-end;
@@ -200,6 +202,7 @@
             width: 100%;
             border-radius: 5%;
             transition: all 0.15s ease;
+            box-shadow: rgb(38, 57, 77) 0px 20px 15px -15px;
         }
         .images input {
             display: none;
@@ -216,7 +219,7 @@
         border: solid black 2px;
         cursor: pointer;
         transition: all 0.15s ease;
-        margin: 5px;
+        margin:10px 0px 0px 20px;
     }
 
     .dots label div:not(:last-child){
@@ -273,10 +276,11 @@
     }
 
     .title_subject {
+        font-weight: 500;
         display: flex;
         justify-content: center;
         margin-top: 3rem;
-        margin-bottom: 1rem;
-        font-size: 16px;
+        margin-bottom: 0.5  rem;
+        font-size: 18px;
     }
 }

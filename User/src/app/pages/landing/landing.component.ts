@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class LandingComponent implements OnInit {
   counter: number = 1;
 
-  slides: any[] = new Array(4).fill({id: -1, src: '', title: '', subtitle: ''});
-  constructor() {}
+  // slides: any[] = new Array(4).fill({id: -1, src: '', title: '', subtitle: ''});
+  // constructor() {}
 
   ngOnInit(): void{
     this.startImageSlider();
