@@ -7,7 +7,7 @@ export const navbarData = [
     {
         routeLink: 'login',
         icon: 'fa-solid fa-book-open-reader',
-        label: 'Products'
+        label: 'Browse Course'
     },
     {
         routeLink: 'statistics',
