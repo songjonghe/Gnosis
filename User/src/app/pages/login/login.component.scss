@@ -9,6 +9,7 @@
 
 #background{
     width: 60%;
+    height: 100vh;
     background-image: url("../../../assets/images/1.png");
     background-size: cover;
     display: flex;
@@ -16,9 +17,9 @@
     .triangle_bottomright{
         position: absolute;
         width: 0;
-        height: 0;
-        border-bottom: 739px solid white;
-        border-left: 153px solid transparent;
+        height: 100vh;
+        border-bottom: 100vh solid white;
+        border-left: 10vw solid transparent;
     }
 }
 
