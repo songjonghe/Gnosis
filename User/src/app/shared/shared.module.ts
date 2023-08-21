@@ -1,8 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-
 import { RouterModule } from '@angular/router';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,14 +30,14 @@ import { BodyComponent } from '../components/body/body.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 import { CdkMenuModule } from '@angular/cdk/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     // Client
     NavBarComponent,
     SideBarComponent,
-    BodyComponent
-
+    BodyComponent,
   ],
   imports: [
     CommonModule,
@@ -69,6 +67,7 @@ import { CdkMenuModule } from '@angular/cdk/menu';
     MatSortModule,
     OverlayModule,
     CdkMenuModule,
+    MatGridListModule,
   ],
   exports: [
     MatSidenavModule,
@@ -92,14 +91,13 @@ import { CdkMenuModule } from '@angular/cdk/menu';
     MatExpansionModule,
     MatPaginatorModule,
     MatSortModule,
+    MatGridListModule,
 
     //
     NavBarComponent,
     SideBarComponent,
-    BodyComponent
+    BodyComponent,
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SharedModule { }
+export class SharedModule {}

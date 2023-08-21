@@ -1,11 +1,11 @@
 export const navbarData = [
     {
         routeLink: 'home',
-        icon: 'fa fa-home',
+        icon: 'fa-solid fa-house',
         label: 'Home',
     },
     {
-        routeLink: 'browse-courses',
+        routeLink: 'browsecourse',
         icon: 'fa-solid fa-book-open-reader',
         label: 'Browse Courses'
     },
@@ -22,7 +22,7 @@ export const navbarData = [
     },
     {
         routeLink: 'settings',
-        icon: 'fal fa-cog',
+        icon: 'fa-solid fa-gear',
         label: 'Settings'
     },
 ];
