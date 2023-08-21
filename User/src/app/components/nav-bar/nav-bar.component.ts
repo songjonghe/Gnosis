@@ -18,6 +18,7 @@ export class NavBarComponent {
   }
   ngOnInit(): void {
     this.checkCanShowSearchAsOverlay(window.innerWidth);
+    window.addEventListener('click', this.outsideClick.bind(this));
   }
 
   getNavbarClass(): string {
@@ -36,6 +37,22 @@ export class NavBarComponent {
     else {
       this.canShowSearchAsOverlay = false;
     }
+  }
+
+  isDropdownOpen = false;
+
+  myFunction() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  outsideClick(event: Event) {
+    if (!(event.target as HTMLElement).matches('.dropbtn')) {
+      this.isDropdownOpen = false;
+    }
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('click', this.outsideClick.bind(this));
   }
 
 }
