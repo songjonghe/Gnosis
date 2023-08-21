@@ -11,13 +11,15 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit() {
     const carousel = this.elementRef.nativeElement.querySelector('.carousel');
     const seats = this.elementRef.nativeElement.querySelectorAll('.carousel-seat');
-
+    //console.log(seats);
     const next = (el: any) => {
+      console.log(el);
       if (el.nextElementSibling) {
         return el.nextElementSibling;
       } else {
         return seats[0];
       }
+     
     };
 
     const progress = () => {
@@ -40,9 +42,11 @@ export class HomeComponent implements AfterViewInit {
 
     const updateSeatsOrder = (startIndex: number) => {
       let order = 1;
+      console.log(startIndex);
       for (let i = startIndex; i < seats.length; i++) {
         seats[i].style.order = order;
         order++;
+        console.log(seats[i].style.order = order);
       }
     };
 
