@@ -7,25 +7,23 @@ import { BrowseCourseComponent } from '../browse-course/browse-course.component'
 
 const routes: Routes = [
   {
-    path: '',
-    component: LayoutComponent,
+    path: '', component: LayoutComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       {
-        path: 'login',
-        component: LoginComponent,
+        path: 'login', component: LoginComponent
       },
       {
-        path: 'browsecourse',
-        component: BrowseCourseComponent,
-      },
-    ],
-  },
+        path: 'browsecourse', component: BrowseCourseComponent
+      }
+
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class LayoutRoutingModule {}
+export class LayoutRoutingModule { }
