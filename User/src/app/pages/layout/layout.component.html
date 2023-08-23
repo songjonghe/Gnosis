@@ -1,3 +1,14 @@
-<app-side-bar (onToggleSideNav)="onToggleSideNav($event)"></app-side-bar>
-<app-nav-bar [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-nav-bar>
-<app-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-body>
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sidebarOpen">
+        <app-side-bar></app-side-bar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="navbar">
+            <app-nav-bar (toggleSidebar)="sidebarToogle()"></app-nav-bar>
+        </div>
+        <div class="body">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

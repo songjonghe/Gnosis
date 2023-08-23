@@ -68,6 +68,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     OverlayModule,
     CdkMenuModule,
     MatGridListModule,
+
   ],
   exports: [
     MatSidenavModule,
@@ -100,4 +101,4 @@ import { MatGridListModule } from '@angular/material/grid-list';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SharedModule {}
+export class SharedModule { }
