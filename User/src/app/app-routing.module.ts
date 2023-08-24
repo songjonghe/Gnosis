@@ -23,7 +23,8 @@ const routes: Routes = [
     path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
   },
   {
-    path: 'browsecourse', loadChildren: () => import('./pages/browse-course/browse-course.module').then(m => m.BrowseCourseModule),
+    path: 'quiz', loadChildren: () => import('./pages/quiz/quiz.module').then(m => m.QuizModule),
+    // path: 'browsecourse', loadChildren: () => import('./pages/browse-course/browse-course.module').then(m => m.BrowseCourseModule),
   }
 ];
 
