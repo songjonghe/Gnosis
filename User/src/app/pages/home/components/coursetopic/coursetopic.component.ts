@@ -13,12 +13,14 @@ export class CoursetopicComponent {
         type: 'doughnut',
         yValueFormatString: "#,###.##'%'",
         dataPoints: [
-          { y: 40,backgroundColor: "#2A6C0D" },
-          { y: 30,backgroundColor: "yellow" },
-          { y: 20,backgroundColor: "pink" },
-          { y: 10, backgroundColor: "red" },
+          { y: 40, color: "#5D9645" },
+          { y: 30, color: "#90D96F" },
+          { y: 20, color: "#C5C5C5" },
+          { y: 10, color: "#55624C" },
         ],
       },
     ],
   };
+
+
 }

@@ -1,6 +1,7 @@
 <div class="navbar" [ngClass]="getNavbarClass()">
     <div class="navbar-content">
         <div class="navbar-content-left">
+            <img style="height: 40px; width: 120px; margin-bottom: 9px;" src="../../../assets/images/logo1.png" alt="">
             <div class="search-container">
                 <div *ngIf="!canShowSearchAsOverlay" class="normal-search">
                     <input type="search" class="search" name="" id="" placeholder="Search...">
@@ -28,12 +29,25 @@
 
 
             </div>
-            <div class="navbar-user-avatar-container">
-                <div class="navbar-user-avatar">
-                    <img src="../../../assets/images/5.jpg" alt="user" class="user-avatar">
-                    <div class="circle-indicator pulse"></div>
+            
+            <button (click)="myFunction()" class="dropbtn">
+                <div class="dropdown">
+                    <div id="myDropdown" [ngClass]="{'dropdown-content': true, 'show': isDropdownOpen}">
+                        <p>Phun</p>
+                        <p>Join Membership</p>
+                        <div class="line"></div>
+                        <p>Profile</p>
+                        <p>Certificate</p>
+                        <p>Whislist</p>
+                        <p>Setting</p>
+                        <p style="margin: 0;">Logout</p>
+                    </div>
                 </div>
-            </div>
+                <div class="circle-indicator pulse"></div>
+            </button>
+                
+               
+            
         </div>
     </div>
 </div>
