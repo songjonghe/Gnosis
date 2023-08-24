@@ -7,14 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from './shared/shared.module';
-import { ProfileComponent } from './pages/profile/profile.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
 
   ],
   imports: [
