@@ -21,6 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+  },
+  {
+    path: 'quiz', loadChildren: () => import('./pages/quiz/quiz.module').then(m => m.QuizModule),
   }
 ];
 

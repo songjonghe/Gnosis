@@ -30,6 +30,7 @@ import { SideBarComponent } from '../components/side-bar/side-bar.component';
 import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 import { BodyComponent } from '../components/body/body.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import {MatGridList, MatGridListModule} from '@angular/material/grid-list';
 
 import { CdkMenuModule } from '@angular/cdk/menu';
 
@@ -69,6 +70,7 @@ import { CdkMenuModule } from '@angular/cdk/menu';
     MatSortModule,
     OverlayModule,
     CdkMenuModule,
+    MatGridListModule
   ],
   exports: [
     MatSidenavModule,
@@ -92,6 +94,7 @@ import { CdkMenuModule } from '@angular/cdk/menu';
     MatExpansionModule,
     MatPaginatorModule,
     MatSortModule,
+    MatGridListModule,
 
     //
     NavBarComponent,

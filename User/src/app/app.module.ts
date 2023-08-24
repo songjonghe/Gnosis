@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from './shared/shared.module';
+import { QuizComponent } from './pages/quiz/quiz.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuizComponent
 
   ],
   imports: [
