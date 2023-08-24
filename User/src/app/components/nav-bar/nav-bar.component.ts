@@ -7,35 +7,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-  @Input() collapsed = false;
-  @Input() screenWidth = 0;
+  @Output() toggleSidebar: EventEmitter<any> = new EventEmitter();
+
 
   canShowSearchAsOverlay = false;
   constructor() { }
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.checkCanShowSearchAsOverlay(window.innerWidth);
-  }
+
   ngOnInit(): void {
-    this.checkCanShowSearchAsOverlay(window.innerWidth);
+
+    window.addEventListener('click', this.outsideClick.bind(this));
+  }
+  openSidebar() {
+    this.toggleSidebar.emit();
   }
 
-  getNavbarClass(): string {
-    let styleClass = '';
-    if (this.collapsed && this.screenWidth > 768) {
-      styleClass = 'navbar-trimmed';
-    } else {
-      styleClass = 'navbar-ms-screen';
-    }
-    return styleClass;
+
+
+
+  isDropdownOpen = false;
+
+  myFunction() {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
-  checkCanShowSearchAsOverlay(innerWidth: number): void {
-    if (innerWidth < 845) {
-      this.canShowSearchAsOverlay = true;
+
+  outsideClick(event: Event) {
+    if (!(event.target as HTMLElement).matches('.dropbtn')) {
+      this.isDropdownOpen = false;
     }
-    else {
-      this.canShowSearchAsOverlay = false;
-    }
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('click', this.outsideClick.bind(this));
   }
 
 }

@@ -16,17 +16,17 @@
     <div class="main">
       <div class="container-navigation">
         <div class="header-navigation" style="margin-top: 1rem;">
-          <p class="title-navigation" >Quiz navigation</p>
-          <p id="timmer">{{formattedTime}}</p>
+          <p  class="title-navigation" >Quiz navigation</p>
+          <p id="timmer" >{{formattedTime}}</p>
         </div>
 
-        <mat-grid-list cols="5" rowHeight="2:1" style= "margin-bottom: 2rem;">
-          <div class="question_list" *ngFor=" let i of questionList">
+        <mat-grid-list cols="5" rowHeight="2:1" style="margin-bottom: 2rem;">
+          <div class="question_list" *ngFor="let question of questionList; let questionIndex = index">
             <mat-grid-tile>
-              <!-- <input class="custom-checkbox" type="checkbox" name="radio"> -->
-              <span class="custom-checkbox" >1</span>
+              <span  class="custom-checkbox" >
+                <div [ngClass]="{'question-selected': question.selectedOptionIndex !== null}" class="number_question" style="width: 100%;height: 100%;display: flex;justify-content: center; align-items: center;" >1</div>
+              </span>
             </mat-grid-tile>
-
           </div>
         </mat-grid-list>
 
@@ -37,15 +37,14 @@
           <p class="number">Câu {{ i + 1 }}</p>
           <p class="title-quiz">{{question.questionLabel}}</p>
 
-          <label class="option" *ngFor="let option of question.options; let optionIndex = index">
+          <label class="option" *ngFor="let option of question.options , let optionIndex = index">
             {{ option.label }}
             <input
-              type="radio"
-              [name]="'question-' + i"
-              [checked]="i === question.selectedOptionIndex"
-              
-              (change)="selectOption(i, optionIndex)"
-            >
+            type="radio"
+            [name]="'question-' + i"
+            [checked]="optionIndex === question.selectedOptionIndex"
+            (change)="selectOption(i, optionIndex)"
+        >
             <span class="checkmark"></span>
           </label>
 

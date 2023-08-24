@@ -15,6 +15,7 @@ export class QuizComponent implements OnInit {
   counter: number = 600;
   timerSubscription: Subscription | undefined;
   formattedTime: string = '';
+  answered: boolean = false;
 
   constructor() {
     this.questionList = [
@@ -71,7 +72,7 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {
     this.questionList.forEach(question => {
-      question.selectedOptionIndex = null; // No option selected initially
+      question.selectedOptionIndex = null; 
     });
 
 
@@ -86,15 +87,22 @@ export class QuizComponent implements OnInit {
     this.formatTime();
     
   }
-  
-  selectOption(questionIndex: number, optionIndex: number): void {
-    this.questionList[questionIndex].selectedOptionIndex = optionIndex;
+
+
+selectOption(questionIndex: number, optionIndex: number): void {
+  this.questionList[questionIndex].selectedOptionIndex = optionIndex;
+  this.answered = true;
+
+  if (questionIndex === this.currentquestion) {
+    this.currentquestion++;
   }
+}
+  
 
   ngOnDestroy(): void {
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();
-    }
+    } 
   }
 
   formatTime(): void {
