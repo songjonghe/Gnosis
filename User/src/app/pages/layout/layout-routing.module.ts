@@ -19,7 +19,7 @@ const routes: Routes = [
         path: 'login', component: LoginComponent
       },
       { path:'profile',component:ProfileComponent},
-       { path: 'browsecourse', component: BrowseCourseComponent}
+       { path: 'browsecourse', component: BrowseCourseComponent},
       
 
 
