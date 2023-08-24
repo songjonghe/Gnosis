@@ -32,10 +32,10 @@ export class UserController {
       const token = authHeader.replace('Bearer ', '');
       const decodedToken = await this.authService.verifyToken(token);
       const uid = decodedToken.uid;
-      // const existingUser = await this.userService.findOne(uid);
-      // if (existingUser) {
-      //   throw new ConflictException('User already exists');
-      // }
+      const existingUser = await this.userService.findOne(uid);
+      if (existingUser) {
+        throw new ConflictException('User already exists');
+      }
       const user: User = {
         uid,
         email: decodedToken.email,
@@ -55,27 +55,27 @@ export class UserController {
   }
 
 
-  // @Get()
-  // findAll() {
-  //   return this.userService.findAll();
-  // }
+  @Get()
+  findAll() {
+    return this.userService.findAll();
+  }
 
-  // @Get(':id')
-  // async findOne(@Param('id') id: string): Promise<User> {
-  //   try {
-  //     const user = await this.userService.findOne(id);
-  //     if (!user) {
-  //       throw new NotFoundException('User not found');
-  //     }
-  //     return user;
-  //   } catch (error) {
-  //     if (error instanceof HttpException) {
-  //       throw error;
-  //     } else {
-  //       throw new InternalServerErrorException('Failed to find user');
-  //     }
-  //   }
-  // }
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<User> {
+    try {
+      const user = await this.userService.findOne(id);
+      if (!user) {
+        throw new NotFoundException('User not found');
+      }
+      return user;
+    } catch (error) {
+      if (error instanceof HttpException) {
+        throw error;
+      } else {
+        throw new InternalServerErrorException('Failed to find user');
+      }
+    }
+  }
 
   // @Put(':id')
   // async update(
